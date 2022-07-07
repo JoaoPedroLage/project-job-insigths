@@ -118,6 +118,8 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
+    # https://www.programiz.com/python-programming/methods/built-in/filter
+    return list(filter(lambda i: (job_type == i["job_type"]), jobs))
 
 
 def filter_by_industry(jobs, industry):
@@ -135,7 +137,7 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    return list(filter(lambda i: (industry == i["industry"]), jobs))
 
 
 def matches_salary_range(job, salary):
