@@ -70,7 +70,7 @@ def get_max_salary(path):
     initial_value = 0
     max_salary = initial_value
     for index in read_dict:
-        if index["max_salary"] != "" and index["min_salary"].isnumeric():
+        if index["max_salary"] != "" and index["max_salary"].isnumeric():
             if int(index["max_salary"]) > max_salary:
                 max_salary = int(index["max_salary"])
 
