@@ -1,3 +1,6 @@
+from src.jobs import read
+
+
 def get_unique_job_types(path):
     """Checks all different job types and returns a list of them
 
@@ -13,25 +16,14 @@ def get_unique_job_types(path):
     list
         List of unique job types
     """
-    return []
+    read_dict = read(path)
+    job_types = []
+    for index in read_dict:
+        if index["job_type"] != "":
+            if index["job_type"] not in job_types:
+                job_types.append(index["job_type"])
 
-
-def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    return job_types
 
 
 def get_unique_industries(path):
@@ -49,25 +41,14 @@ def get_unique_industries(path):
     list
         List of unique industries
     """
-    return []
+    read_dict = read(path)
+    industries_types = []
+    for index in read_dict:
+        if index["industry"] != "":
+            if index["industry"] not in industries_types:
+                industries_types.append(index["industry"])
 
-
-def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    return industries_types
 
 
 def get_max_salary(path):
@@ -104,6 +85,41 @@ def get_min_salary(path):
         The minimum salary paid out of all job opportunities
     """
     pass
+
+
+def filter_by_job_type(jobs, job_type):
+    """Filters a list of jobs by job_type
+
+    Parameters
+    ----------
+    jobs : list
+        List of jobs to be filtered
+    job_type : str
+        Job type for the list filter
+
+    Returns
+    -------
+    list
+        List of jobs with provided job_type
+    """
+
+
+def filter_by_industry(jobs, industry):
+    """Filters a list of jobs by industry
+
+    Parameters
+    ----------
+    jobs : list
+        List of jobs to be filtered
+    industry : str
+        Industry for the list filter
+
+    Returns
+    -------
+    list
+        List of jobs with provided industry
+    """
+    return []
 
 
 def matches_salary_range(job, salary):
