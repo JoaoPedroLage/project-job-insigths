@@ -66,7 +66,15 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    read_dict = read(path)
+    initial_value = 0
+    max_salary = initial_value
+    for index in read_dict:
+        if index["max_salary"] != "" and index["min_salary"].isnumeric():
+            if int(index["max_salary"]) > max_salary:
+                max_salary = int(index["max_salary"])
+
+    return max_salary
 
 
 def get_min_salary(path):
@@ -84,7 +92,15 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
-    pass
+    read_dict = read(path)
+    max_salary = get_max_salary(path)
+    min_salary = max_salary
+    for index in read_dict:
+        if index["min_salary"] != "" and index["min_salary"].isnumeric():
+            if int(index["min_salary"]) < min_salary:
+                min_salary = int(index["min_salary"])
+
+    return min_salary
 
 
 def filter_by_job_type(jobs, job_type):
